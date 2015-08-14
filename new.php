@@ -109,24 +109,28 @@ table(10,8);
 
 ?>
 <h1>5</h1>
-
 <?php
+
 $numbers=array(7,22,5,66,3,57);
 function sorts($numbers)
 {
     $p=$numbers[0];
     $arSor=array();
-
-    for ($i = 1; $i < count($numbers); $i++) {
-        if ($p <= $numbers[$i]) {
-            $p = $p;
-        } else {
-            $p = $numbers[$i];
+    do {
+        for ($i = 1; $i < count($numbers); $i++) {
+            if ($p <= $numbers[$i]) {
+                $p = $p;
+            } else {
+                $p = $numbers[$i];
+            }
         }
-    }
-    $arSor[] = $p;
-    $key = array_search($p, $numbers);
-    unset($numbers[$key]);
+
+        $key = array_search($p, $numbers);
+        $arSor[] = $p;
+        unset($numbers[$key]);
+        $numbers = array_values($numbers);
+        $p=$numbers[0];
+    }while(count($numbers) != 0);
 
     print_r($arSor);
 
@@ -151,7 +155,7 @@ function recurs($first,$last){
 recurs(8,16);
 ?>
 
-<h1>7</h1>
+<h1>7 </h1>
 <?php
 
 
