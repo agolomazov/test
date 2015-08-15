@@ -38,22 +38,22 @@ function doit($arr, $action){
         }
         echo "$sum";
     }elseif ($action == "-") {
-        $min = 0;
-        for ($i = 0; $i < count($arr); $i++) {
+        $min = $arr[0];
+        for ($i = 1; $i < count($arr); $i++) {
             $min -=$arr[$i];
         }
         echo "$min";
     }elseif ($action == "/"){
-        $del = 1;
-        for ($d = 0; $d < count($arr); $d++) {
+        $del = $arr[0];
+        for ($d = 1; $d < count($arr); $d++) {
             if($arr[$d]!=0){
                 $del /= $arr[$d];
             }
         }
         echo "$del";
     }elseif ($action == "%") {
-        $fdel = 1;
-        for ($i = 0; $i < count($arr); $i++) {
+        $fdel = $arr[0];
+        for ($i = 1; $i < count($arr); $i++) {
             if ($arr[$i] != 0) {
                 $fdel %= $arr[$i];
             }
@@ -63,8 +63,8 @@ function doit($arr, $action){
         echo 'Ошибка. Введите "*","+","-" или "/"';
     }
 }
-$arrayN =array(1,2,3,4,5,6,7,8);
-doit($arrayN,"-");
+$arrayN =array(10,11,5,7,1);
+doit($arrayN,"/");
 
 
 echo"<h1>3</h1>";
@@ -78,7 +78,7 @@ function arif(){
 
 
 }
-arif("*",5,8,10);
+arif("/",5,8,10);
 
 
 ?>
